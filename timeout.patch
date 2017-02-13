@@ -1,0 +1,19 @@
+diff --git phantom-scrape.js phantom-scrape.js
+index f172e0f..95694f9 100644
+--- phantom-scrape.js
++++ phantom-scrape.js
+@@ -72,11 +72,11 @@ if (userAgent) {
+ page.settings.loadImages = false;
+
+ // ensure we don't waste time trying to load slow/missing resources
+-page.settings.resourceTimeout = 5000;
++page.settings.resourceTimeout = 10000;
+
+ // if we do timeout a slow resource, say something useful
+ page.onResourceTimeout = function(request) {
+-    console.log('Response (#' + request.id + '): ' + JSON.stringify(request));
++    require("system").stderr.write('Response (#' + request.id + '): ' + JSON.stringify(request));
+ };
+
+ page.onConsoleMessage = function(msg) {
+

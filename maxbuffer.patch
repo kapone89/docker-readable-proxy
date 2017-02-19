@@ -1,0 +1,14 @@
+
+diff --git a/scrape.js b/scrape.js
+index 0e89a9e..3c320b1 100644
+--- a/scrape.js
++++ b/scrape.js
+@@ -16,7 +16,7 @@ module.exports = function scrape(url, options) {
+     if (options.userAgent) {
+       childArgs.push(options.userAgent);
+     }
+-    childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
++    childProcess.execFile(binPath, childArgs,{maxBuffer: 1024 * 1024 * 5}, function(err, stdout, stderr) {
+       if (err) {
+         return reject(err);
+       }

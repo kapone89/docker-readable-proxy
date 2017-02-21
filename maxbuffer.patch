@@ -7,8 +7,7 @@ index 0e89a9e..3c320b1 100644
        childArgs.push(options.userAgent);
      }
 -    childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-+    childProcess.execFile(binPath, childArgs,{maxBuffer: 1024 * 1024 * 5}, function(err, stdout, stderr) {
++    childProcess.execFile(binPath, childArgs, {maxBuffer: process.env.MAX_BUFFER || 1024 * 200 }, function(err, stdout, stderr) {
        if (err) {
          return reject(err);
        }
-

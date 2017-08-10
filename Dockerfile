@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:8
 RUN git clone https://github.com/n1k0/readable-proxy ; cd readable-proxy ; npm install
 RUN git clone https://github.com/mozilla/readability.git
 # ADD timeout.patch /timeout.patch
